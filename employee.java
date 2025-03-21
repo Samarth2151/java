@@ -51,10 +51,7 @@ employee obj1=new employee();
 obj.setn("aniket","shinde");
 obj.sets();
 obj.getn(12000);
-obj.gets();void sets(){
-System.out.println("Employee Name");
-System.out.print(fn+""+ln+"..");
-}
+obj.gets();
 obj.sety();
 obj.setr();
 
