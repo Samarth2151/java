@@ -1,68 +1,88 @@
-public class employee{
+class employee {
+    String a, b, c;
+    int d;
 
-String fn;
-String ln;
-int sal,year,r;
+    employee(String a, String b, String c, int d) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
+    }
 
-void employee(){}
-void employee(String fn,String ln,int sal){
-this.fn=fn;
-this.ln=ln;
-this.sal=sal;
+    void clbonus() {
+        System.out.println("Bonus: " + (0.10 * d));
+    }
+
+    void gen() {
+        System.out.println(c + " " + a + " has shown excellent performance.");
+    }
+
+    void mgp() {
+        System.out.println("Name: " + a);
+        System.out.println("Address: " + b);
+        System.out.println("Job Title: " + c);
+        System.out.println("Salary: " + d);
+        clbonus();
+    }
+     public static void main(String[] args) {
+        Manager e = new Manager("Pratik", "Islampur", 80000);
+        Developer f = new Developer("Raj", "Solapur", 60000);
+        Programmer g = new Programmer("Piyush", "Mumbai", 50000);
+
+        e.mgp();
+        e.clbonus();
+        System.out.println();
+
+        f.mgp();
+        f.clbonus();
+        System.out.println();
+
+        g.mgp();
+        g.clbonus();
+    }
 }
 
-void setn(String fn,String ln){
-this.fn=fn;
-this.ln=ln;
+class Manager extends employee {
+    Manager(String a, String b, int d) {
+        super(a, b, "Manager", d);
+    }
+
+    void clbonus() {
+        System.out.println("Bonus: " + (0.20 * d));
+    }
+
+    void mgp() {
+        System.out.println(a + " is managing company projects.");
+    }
 }
 
-void sets(){
-System.out.println("Employee Name");
-System.out.print(fn+""+ln+"..");
+class Developer extends employee {
+    Developer(String a, String b, int d) {
+        super(a, b, "Developer", d);
+    }
+
+    void clbonus() {
+        System.out.println("Bonus: " + (0.15 * d));
+    }
+
+    void mgp() {
+        System.out.println(a + " is developing software.");
+    }
 }
 
-void getn(int sal){
-this.sal=sal;
-if(sal<0){
-sal=0;
-}}
+class Programmer extends employee {
+    Programmer(String a, String b, int d) {
+        super(a, b, "Programmer", d);
+    }
 
-void gets(){
-System.out.print("Monthly salary"+sal+"...");
+    void clbonus() {
+        System.out.println("Bonus: " + (0.12 * d));
+    }
+
+    void mgp() {
+        System.out.println(a + " is debugging the code.");
+    }
+   
 }
 
-void sety(){
-year=sal*12;
-System.out.println("Yearly salary of employee.."+year);
-}
 
-void setr(){
-int r=sal*10/100;
-r+=sal;
-System.out.println("Raise is 10 % and that is "+r);
-r*=12;
-System.out.println("Yearly salary is"+r);
-}
-
-public static void main(String args[]){
-employee obj=new employee();
-employee obj1=new employee();
-
-obj.setn("aniket","shinde");
-obj.sets();
-obj.getn(12000);
-obj.gets();
-obj.sety();
-obj.setr();
-
-obj1.setn("pratik","zende");
-obj1.sets();
-obj1.getn(15000);
-obj1.gets();
-obj1.sety();
-obj1.setr();
-
-
-}
-
-}
